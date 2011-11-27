@@ -1,0 +1,13 @@
+--- sites/all/modules/commerce/includes/commerce.currency.inc	2011-11-27 13:14:26.441301000 +0200
++++ sites/all/modules/commerce/includes/commerce.currency.inc.new	2011-11-27 13:14:50.156451000 +0200
+@@ -878,8 +878,8 @@
+       'major_unit' => t('Dollar'),
+     ),
+     'RON' => array(
+-      'code' => 'RON',
+-      'symbol' => 'RON',
++      'code' => 'Lei',
++      'symbol' => 'Lei',
+       'name' => t('Romanian Leu'),
+       'minor_unit' => t('Ban'),
+       'major_unit' => t('Leu'),
