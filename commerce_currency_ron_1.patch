@@ -1,11 +1,13 @@
---- sites/all/modules/commerce/includes/commerce.currency.inc	2011-11-27 13:14:26.441301000 +0200
-+++ sites/all/modules/commerce/includes/commerce.currency.inc.new	2011-11-27 13:14:50.156451000 +0200
-@@ -878,8 +878,8 @@
+--- sites/all/modules/commerce/includes/commerce.currency.inc	2011-11-27 14:06:15.506757000 +0200
++++ sites/all/modules/commerce/includes/commerce.currency.inc.new	2011-11-27 14:06:32.559958000 +0200
+@@ -877,9 +877,9 @@
+       'minor_unit' => t('Cent'),
        'major_unit' => t('Dollar'),
      ),
-     'RON' => array(
+-    'RON' => array(
 -      'code' => 'RON',
 -      'symbol' => 'RON',
++    'Lei' => array(
 +      'code' => 'Lei',
 +      'symbol' => 'Lei',
        'name' => t('Romanian Leu'),
