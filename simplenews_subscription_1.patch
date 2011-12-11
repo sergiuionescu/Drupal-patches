@@ -1,0 +1,50 @@
+--- sites/all/modules/simplenews/includes/simplenews.subscription.inc	2011-12-11 20:13:53.134422000 +0200
++++ sites/all/modules/simplenews/includes/simplenews.subscription.inc.new	2011-12-11 20:16:09.601788000 +0200
+@@ -178,7 +178,6 @@
+     '#type' => 'value',
+     '#value' => $newsletter,
+   );
+-  $form['#redirect'] = variable_get('simplenews_confirm_subscribe_page', '');
+ 
+   return confirm_form($form,
+     t('Confirm subscription'),
+@@ -192,10 +191,13 @@
+ function simplenews_confirm_add_form_submit($form, &$form_state) {
+   simplenews_subscribe_user($form_state['values']['mail'], $form_state['values']['newsletter']->tid, FALSE, 'website');
+ 
++  $confirmation_page = variable_get('simplenews_confirm_subscribe_page', '');
++  $form_state['redirect'] = $confirmation_page;
++  
+   // Display message if user is directed to the front page.
+-  if (!$form['#redirect']) {
++//  if ($confirmation_page) {
+     drupal_set_message(t('%user was added to the %newsletter mailing list.', array('%user' => $form_state['values']['mail'], '%newsletter' => $form_state['values']['newsletter']->name)));
+-  }
++//  }
+ }
+ 
+ /**
+@@ -217,7 +219,6 @@
+     '#type' => 'value',
+     '#value' => $newsletter,
+   );
+-  $form['#redirect'] = variable_get('simplenews_confirm_unsubscribe_page', '');
+ 
+   return confirm_form($form,
+     t('Confirm remove subscription'),
+@@ -231,10 +232,13 @@
+ function simplenews_confirm_removal_form_submit($form, &$form_state) {
+   simplenews_unsubscribe_user($form_state['values']['mail'], $form_state['values']['newsletter']->tid, FALSE, 'website');
+ 
++  $confirmation_page = variable_get('simplenews_confirm_unsubscribe_page', '');
++  $form_state['redirect'] = $confirmation_page;
++  
+   // Display message if user is directed to the front page.
+-  if (!$form['#redirect']) {
++//  if ($confirmation_page) {
+     drupal_set_message(t('%user was unsubscribed from the %newsletter mailing list.', array('%user' => $form_state['values']['mail'], '%newsletter' => $form_state['values']['newsletter']->name)));
+-  }
++//  }
+ }
+ 
+ /**
